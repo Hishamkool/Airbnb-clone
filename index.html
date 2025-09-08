@@ -4,38 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Airbnb</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <header>
-        <!-- dektop -->
-            <!-- header div  column-->
-                <!-- first row logo icons and action buttons 
-         
-                    -- logo --title
-                    -- navigation icons
-                    -- action buttons
-                -->
-             <!-- second row search with icons -->
+    <header class="header">
+        <div class="header-container">
+            <!-- first container of header -->
+            <div class="header-top">
+                <!--  <div class="logo">
+                    <img src="assets/svg/desktop/airbnb-logo.svg" alt="airbnb-logo">
+                </div>
+                
+                <div class="actions"> 
+                </div> -->
+                <div class="search-container">
+                    <button class="search-button">
+                        <div class="button-contents">
+                            <img class="search-icon" src="assets/svg/mobile/search-icon.svg" alt="search icon">
+                            <span class="search-text">Start your search</span>
+                        </div>
+                    </button>
 
-        <!-- mobile -->
-            <!-- header div  column--> 
-                <!-- search row invisible-->
-                <!-- navigation icons -->
-        
-            <div class="header-container">
-                <div class="main-header">
-                    <div class="hed-first-row">
-                        <!-- logo , navigation -->
+                </div>
+            </div>
+            <!-- second container of header -->
+            <div class="header-bottom">
+
+                <div class="nav-icons-container">
+                    <!-- homes button -->
+                    <div class="nav-icon selected">
+                        <a href="#" class="nav-content">
+                            <span class="nav-video">
+                                <video autoplay muted playsinline=""
+                                    poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
+                                    preload="auto">
+                                    <source
+                                        src="https://a0.muscache.com/videos/search-bar-icons/hevc/house-twirl-selected.mov"
+                                        type="video/mp4; codecs=&quot;hvc1&quot;">
+                                    <source src="assets/media/house-twirl-selected.webm" type="video/webm">
+                                </video>
+
+                            </span>
+                            <span class="nav-title">
+                                Homes
+                            </span>
+                        </a>
+                    </div>
+                    <!-- experiences button -->
+                    <div class="nav-icon">
+                        <a href="#" class="nav-content">
+                            <span class="nav-video">
+                                <video autoplay muted playsinline="" preload="auto"
+                                    poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/e47ab655-027b-4679-b2e6-df1c99a5c33d.png?im_w=240">
+                                    <source src="" type="video/mp4; codecs=&quot;hvc1&quot;">
+                                    <source src="assets/media/balloon-twirl.webm" type="video/webm">
+                                </video>
+                            </span>
+                            <span class="nav-title">Experiences</span>
+                        </a>
+                    </div>
+
+                    <!-- Services button -->
+                    <div class="nav-icon">
+                        <a href="#" class="nav-content">
+                            <span class="nav-video">
+                                <video autoplay muted playsinline="" preload="auto"
+                                    poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/3d67e9a9-520a-49ee-b439-7b3a75ea814d.png?im_w=240">
+                                    <source
+                                        src="https://a0.muscache.com/videos/search-bar-icons/hevc/balloon-selected.mov#t=0.001"
+                                        type="video/mp4; codecs=&quot;hvc1&quot;">
+                                    <source src="assets/media/bell-twirl.webm" type="video/webm">
+                                </video>
+
+                            </span>
+                            <span class="nav-title">
+                                Services
+                            </span>
+                        </a>
                     </div>
                 </div>
             </div>
-
-        
-
-
-
+        </div>
     </header>
+    <!-- main content of the page containing the scrollable cards -->
+    <main>
+        <section class="category-section">
+            <div class="cs-title">
+                <span></span>
+            </div>
+            <div class="cs-scroll">
+                <div class="cat-card">
+                    <img src="" alt="">
+                    <span class="card-title"></span>
+                    <div class="card-subtitle"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+
+    </footer>
+
+
 </body>
 
 </html>

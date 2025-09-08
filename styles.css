@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Cereal", sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@font-face {
+    font-family: "Cereal";
+    src: url("assets/fonts/AirbnbCerealVF_W_Wght.2d9d32865ef1262644c455b3ead871e9.woff2");
+    font-weight: 100 900;
+}
+
+/* header */
+
+.header-top {
+    width: 100%;
+}
+
+.search-container {
+    margin: 12px 24px 0;
+}
+
+.search-button {
+    background-color: white;
+    padding: 10px 19px;
+    border-radius: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    min-height: 56px;
+    width: 100%;
+    border: 0.5px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
+
+}
+
+.search-button .button-contents {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: centers;
+    column-gap: 8px;
+}
+
+.button-contents .search-icon {
+    height: 12px;
+}
+
+.button-contents .search-text {
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 500;
+    padding-left: 2px;
+}
+
+/* bottom header  */
+.header-bottom {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+
+}
+
+.nav-icons-container {
+    padding: 16px 56px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+/* each nav item */
+.nav-icon .nav-content {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    min-width: 68px;
+    margin-bottom: 8px;
+}
+
+.nav-icon.selected {
+    border-bottom: 3px solid black;
+}
+
+
+
+.nav-content .nav-video {
+    padding-top: 8px;
+    padding-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* nav icons size */
+.nav-video video {
+    height: 36px;
+    width: 36px;
+    transform: scale(2);
+}
+
+.nav-content .nav-title {
+    font-size: 12px;
+    line-height: 10px;
+}
