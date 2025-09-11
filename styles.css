@@ -46,7 +46,6 @@ a {
     width: 100%;
     border: 0.5px solid rgba(0, 0, 0, 0.08);
     box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.1);
-
 }
 
 .search-button .button-contents {
@@ -160,18 +159,19 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
- 
+
+
 
 }
-.ct-right-arrow{
+
+.ct-right-arrow {
     margin-left: 2px;
     padding-right: 12px;
 }
 
 .category-title span {
     font-size: 18px;
-    line-height: 24px; 
+    line-height: 24px;
     font-weight: 600;
     color: var(--color-text-default);
 }
@@ -219,7 +219,6 @@ a {
     grid-template-rows: repeat(3, 1fr);
     padding: 12px 12px 0;
     grid-column-gap: 8px;
-
 }
 
 .guest-fav-cont {
@@ -269,10 +268,6 @@ a {
     width: 24px;
 }
 
-
-
-
-
 .card-details {
     display: grid;
     column-gap: 2px;
@@ -285,7 +280,6 @@ a {
     font-weight: 500;
     line-height: 16px;
     color: var(--color-text-default);
-
 }
 
 .card-subtitle {
@@ -316,4 +310,210 @@ a {
     width: 8px;
     line-height: 16px;
     display: block;
+}
+
+/* inspitation section */
+.Inspiration-section {
+    margin-block: 48px;
+}
+
+.inspiration-container {
+    margin: 0 16px;
+    border-bottom: 1px solid lightgrey;
+    padding-bottom: 10px;
+}
+
+.inspiration-text {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 26px;
+    color: var(--color-text-default);
+    margin-bottom: 8px;
+}
+
+.inspiration-arrows {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin: 0 16px;
+    margin-top: 10px; */
+
+}
+
+.inspiration-arrows img {
+    height: 16px;
+    width: 16px;
+}
+
+/* footer section */
+.footer-container {
+    padding: 0 24px;
+}
+
+.links-group {
+
+    padding: 24px 0;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+/* heading container */
+.links-head {
+    margin-bottom: 16px;
+    margin-block-start: 16px;
+    margin-block-end: 16px;
+}
+
+/* heading */
+.links-head h3 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+/* container for all links */
+.links-group .links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* each link */
+.links a {
+    font-size: 14px;
+    font-style: normal;
+    line-height: 18px;
+    color: var(--color-text-default);
+}
+
+/* footer social */
+.footer-lan-cur {
+    display: flex;
+    flex-direction: row;
+}
+
+.lng-select {
+    padding: 6px 0;
+    padding-right: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+}
+
+.globe-icon {
+    height: 16px;
+    width: 16px;
+}
+
+.lng-text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    color: var(--color-text-default);
+}
+
+.currency {
+    padding: 6px 8px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.footer-social {
+    padding: 8px 0;
+    /* margin-left: -8px; */
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer-social a {
+    /* height: 32px; */
+    /* width: 32px; */
+}
+
+.footer-social a img {
+    height: 16px;
+    width: 16px;
+}
+
+.copyright {
+    margin-bottom: 4px;
+
+}
+
+.terms {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    color: var(--color-text-default);
+}
+
+.seperator {
+
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: normal;
+    padding: 0 8px;
+}
+
+/* footer-bottom */
+.footer-bottom {
+    padding: 24px 0;
+}
+
+/* floating bottom navigation bar */
+.bottom-navbar {
+    display: flex;
+    gap: 2px;
+
+    justify-content: center;
+}
+
+.bn-img-cnt {
+    height: 30px;
+}
+
+.bn-btn-img {
+    display: block;
+    fill: none;
+    height: 24px;
+    width: 24px;
+    stroke: rgb(106, 106, 106);
+    stroke-width: 2;
+    overflow: visible;
+}
+ 
+.bn-button {
+    padding: 0 2px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex: 1 1 0%;
+    max-width: 20%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(106, 106, 106);
+}
+
+.bn-button.selected {
+    stroke: rgb(218, 18, 73); 
+     stroke-width: 2.66667; /* for svg */
+}
+
+.bn-btn-txt {
+    color: inherit;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 12px;
+
 }

@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { img: "assets/avif/070.avif", name: "Minimalist Flat, Dwarka", price: "₹5,200 for 2 nights", rating: "4.65", isGuestFav: true },
                 { img: "assets/avif/071.avif", name: "Penthouse with Terrace, Saket", price: "₹13,200 for 2 nights", rating: "4.87", isGuestFav: true }
             ]
-        } 
+        }
     ];
 
 
@@ -240,8 +240,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+     /*    // for changing the image when selecting bottom nav bar
+        const secondImage = document.querySelector("bn2");
+        const bottomNavBtn = document.querySelectorAll(".bn-button");
+    
+    
+        bottomNavBtn.forEach(button => {
+            button.classList.remove("selected");
+    
+            button.addEventListener("click", function () {
+                button.classList.add("selected");
+                const img = button.querySelector(".bn-btn-img"); 
+                    img.src = "assets/svg/mobile/floating-wishlists-selected.svg"; 
+            });
+        }); */
+ 
+    //change svg color when selected 
+    const
+    
 
 
+
+
+
+
+
+
+    // 
 });
 
 
