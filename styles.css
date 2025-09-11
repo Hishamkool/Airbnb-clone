@@ -471,11 +471,31 @@ a {
 }
 
 /* floating bottom navigation bar */
-.bottom-navbar {
+.floating-footer{
+    transform: translateY(0);
+    position: fixed;
     display: flex;
-    gap: 2px;
-
+    flex-direction: row; 
     justify-content: center;
+    align-items: center;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    height: 65px;
+    transition: 0.1s ease-in;
+}
+
+.floating-footer.invisible{
+    transform: translateY(100%);
+}
+.bottom-navbar {
+   
+    width: 100%;
+    display: flex;
+    gap: 2px; 
+    justify-content: center;
+   
 }
 
 .bn-img-cnt {
@@ -491,7 +511,7 @@ a {
     stroke-width: 2;
     overflow: visible;
 }
- 
+
 .bn-button {
     padding: 0 2px;
     cursor: pointer;
@@ -505,15 +525,23 @@ a {
     color: rgb(106, 106, 106);
 }
 
-.bn-button.selected {
-    stroke: rgb(218, 18, 73); 
-     stroke-width: 2.66667; /* for svg */
+ 
+
+.bn-button.selected .bn-btn-img {
+    stroke-width: 2.66667;
+    stroke: rgb(218, 18, 73);
 }
+
+.bn-button.selected .bn-btn-txt {
+    font-weight: 500;
+    color: rgb(218, 18, 73);
+}
+
 
 .bn-btn-txt {
     color: inherit;
     font-size: 10px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 12px;
 
 }

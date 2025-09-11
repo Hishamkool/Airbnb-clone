@@ -240,25 +240,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-     /*    // for changing the image when selecting bottom nav bar
-        const secondImage = document.querySelector("bn2");
-        const bottomNavBtn = document.querySelectorAll(".bn-button");
-    
-    
-        bottomNavBtn.forEach(button => {
-            button.classList.remove("selected");
-    
-            button.addEventListener("click", function () {
-                button.classList.add("selected");
-                const img = button.querySelector(".bn-btn-img"); 
-                    img.src = "assets/svg/mobile/floating-wishlists-selected.svg"; 
-            });
-        }); */
- 
-    //change svg color when selected 
-    const
-    
+    /*    // for changing the image when selecting bottom nav bar
+       const secondImage = document.querySelector("bn2");
+       const bottomNavBtn = document.querySelectorAll(".bn-button");
+   
+   
+       bottomNavBtn.forEach(button => {
+           button.classList.remove("selected");
+   
+           button.addEventListener("click", function () {
+               button.classList.add("selected");
+               const img = button.querySelector(".bn-btn-img"); 
+                   img.src = "assets/svg/mobile/floating-wishlists-selected.svg"; 
+           });
+       }); */
 
+    //change svg color when selected 
+    const navBtns = document.querySelectorAll(".bn-button");
+
+    navBtns.forEach(navButton => {
+        navButton.addEventListener("click", function () {
+            navBtns.forEach(btn => {
+                btn.classList.remove("selected");
+
+            });
+            navButton.classList.add("selected");
+        });
+    });
+
+
+    // to show and hide floating navigation bar
+    const floatingFooter = document.querySelector(".floating-footer");
+    let lastScroll = 0;
+     
+    
+    window.addEventListener("scroll", function () {
+        currentScroll = window.scrollY;
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        console.log(
+            "currentScroll:", currentScroll,
+            "maxScroll:", maxScroll,
+            "scrollHeight:", document.documentElement.scrollHeight,
+            "clientHeight:", document.documentElement.clientHeight,
+            "inner height:", window.innerHeight,
+        );
+
+        if (currentScroll === 0 || currentScroll >= maxScroll - 5) {
+            floatingFooter.classList.remove("invisible");
+        } else if (currentScroll > lastScroll) {
+            floatingFooter.classList.add("invisible");
+        }
+
+        else {
+            floatingFooter.classList.remove("invisible");
+        }
+        lastScroll = currentScroll;
+    });
 
 
 
