@@ -272,18 +272,18 @@ document.addEventListener("DOMContentLoaded", () => {
     // to show and hide floating navigation bar
     const floatingFooter = document.querySelector(".floating-footer");
     let lastScroll = 0;
-     
-    
+
+
     window.addEventListener("scroll", function () {
         currentScroll = window.scrollY;
         const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        console.log(
-            "currentScroll:", currentScroll,
-            "maxScroll:", maxScroll,
-            "scrollHeight:", document.documentElement.scrollHeight,
-            "clientHeight:", document.documentElement.clientHeight,
-            "inner height:", window.innerHeight,
-        );
+        /*   console.log(
+              "currentScroll:", currentScroll,
+              "maxScroll:", maxScroll,
+              "scrollHeight:", document.documentElement.scrollHeight,
+              "clientHeight:", document.documentElement.clientHeight,
+              "inner height:", window.innerHeight,
+          ); */
 
         if (currentScroll === 0 || currentScroll >= maxScroll - 5) {
             floatingFooter.classList.remove("invisible");
@@ -298,13 +298,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+    //to move the underline below nav icons during selection
+    const underLine = document.querySelector(".moving-underline");
+    const navIcons = document.querySelectorAll(".nav-icon");
 
 
+    // first i need to find the size of the nav icon to set the width of the moving underline
+    // i need to find where the is the particular nav icon loacted using for each and x direction position to transform the moving underline done
+    // i need to find which nav icon is selelcted by adding and removing selected class done
+
+    navIcons.forEach(navIcon => {
+        navIcon.addEventListener("click", function () {
+            navIcons.forEach(icon => {
+                icon.classList.remove("selected");
+            });
+            navIcon.classList.add("selected");
+            const widthIcon = navIcon.querySelector(".nav-title").offsetWidth;
+            const positonIcon = navIcon.querySelector(".nav-title").offsetLeft;
+            console.log("position from left: " + positonIcon + "," + "Width of icon: " + widthIcon);
+            // moveTheUnderline(widthIcon, positonIcon);
+            moveTheUnderline(widthIcon, positonIcon);
+        });
+    });
+
+    // function moveTheUnderline(width, positionLeft) {
+    function moveTheUnderline(width, postition) {
+
+        /*    const containerRect = document.querySelector(".nav-icons-container").getBoundingClientRect();
+           const currentRect = currentIcon.getBoundingClientRect();
+           const relativeLeft = currentRect.left - containerRect.left;
+           console.log("relative left : " + relativeLeft); */
+        // underLine.style.transform = `translateX(${relativeLeft}px)`;
+        underLine.style.width = `${width}px`;
+        underLine.style.transform = `translateX(${postition - 56}px)`;
+        // console.log("moving : " + `translateX(${currentIcon.offsetLeft - 56}px)`);
+        //-56 px because of the padding of the parent container
+
+    }
 
 
 
     // 
 });
+
+
 
 
 
