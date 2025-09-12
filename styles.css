@@ -25,13 +25,16 @@ a {
 }
 
 /* header  section*/
-.header-container {
+.header {
     position: sticky;
-    top: 0;
     z-index: 10;
+    top: 0;
+    left: 0;
+    /* padding-block: 20px; */
     background-color: #FFFFFF;
-
 }
+
+ 
 
 .header-top {
     width: 100%;
@@ -108,13 +111,13 @@ a {
 
 
 
-.moving-underline { 
+.moving-underline {
     position: absolute;
-    bottom: 0px; 
+    bottom: 0px;
     height: 3px;
     /* width: 30px; */
     background: black;
-    transition:  0.3s ease;
+    transition: 0.3s ease;
 }
 
 
@@ -162,6 +165,8 @@ a {
 .nav-content .nav-title {
     font-size: 12px;
     line-height: 10px;
+    font-weight: 600;
+    color: #6A6A6A;
 }
 
 /* main section */

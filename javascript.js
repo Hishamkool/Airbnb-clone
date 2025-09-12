@@ -302,39 +302,52 @@ document.addEventListener("DOMContentLoaded", () => {
     const underLine = document.querySelector(".moving-underline");
     const navIcons = document.querySelectorAll(".nav-icon");
 
-
-    // first i need to find the size of the nav icon to set the width of the moving underline
-    // i need to find where the is the particular nav icon loacted using for each and x direction position to transform the moving underline done
-    // i need to find which nav icon is selelcted by adding and removing selected class done
-
-    navIcons.forEach(navIcon => {
+    navIcons.forEach((navIcon, index) => {
         navIcon.addEventListener("click", function () {
             navIcons.forEach(icon => {
                 icon.classList.remove("selected");
             });
             navIcon.classList.add("selected");
             const widthIcon = navIcon.querySelector(".nav-title").offsetWidth;
-            const positonIcon = navIcon.querySelector(".nav-title").offsetLeft;
-            console.log("position from left: " + positonIcon + "," + "Width of icon: " + widthIcon);
-            // moveTheUnderline(widthIcon, positonIcon);
-            moveTheUnderline(widthIcon, positonIcon);
+            const positionIcon = navIcon.querySelector(".nav-title").offsetLeft;
+            const navVideo = navIcon.querySelector(".nav-video video");
+            // function to move the underline
+            moveTheUnderline(widthIcon, positionIcon);
+            // calling function to change video when selected
+            changeVideo(navVideo, index);
         });
     });
 
     // function moveTheUnderline(width, positionLeft) {
     function moveTheUnderline(width, postition) {
-
-        /*    const containerRect = document.querySelector(".nav-icons-container").getBoundingClientRect();
-           const currentRect = currentIcon.getBoundingClientRect();
-           const relativeLeft = currentRect.left - containerRect.left;
-           console.log("relative left : " + relativeLeft); */
-        // underLine.style.transform = `translateX(${relativeLeft}px)`;
         underLine.style.width = `${width}px`;
         underLine.style.transform = `translateX(${postition - 56}px)`;
-        // console.log("moving : " + `translateX(${currentIcon.offsetLeft - 56}px)`);
         //-56 px because of the padding of the parent container
 
     }
+
+    // changing video file when selecting item
+    function changeVideo(navVideo, index) {
+        const videoWebm = navVideo.querySelector("source[type='video/webm']");
+        const videoMov = navVideo.querySelector("source[type='video/mp4']");
+        if (index == 0) {
+            videoWebm.src = "assets/media/house-selected.webm";
+            videoMov.src = "assets/media/mov/house-selected.mov"
+
+        } else if (index == 1) {
+            videoWebm.src = "assets/media/mov/balloon-selected.webm";
+            videoMov.src = "assets/media/mov/balloon-selected.mov"
+
+        } else if (index == 2) {
+
+            videoWebm.src = "assets/media/bell-selected.webm";
+            videoMov.src = "assets/media/mov/bell-twirl-selected.mov"
+        }
+        navVideo.load();
+        navVideo.play();
+    }
+
+
 
 
 
