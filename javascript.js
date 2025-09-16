@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const categoriesList = [
         {
-            title: "Popular Homes in Bengaluru",
+            title: "Popular homes in Bengaluru",
             listings: [
                 { img: "assets/avif/000.avif", name: "Couple Private Studio, Koramangala", price: "₹4,500 for 2 nights", rating: "4.70", isGuestFav: true },
                 { img: "assets/avif/001.avif", name: "Cozy 1BHK, Indiranagar", price: "₹5,000 for 2 nights", rating: "4.72", isGuestFav: true },
@@ -238,23 +238,6 @@ document.addEventListener("DOMContentLoaded", () => {
         catSection.appendChild(createEachCategoryRow(categoryListItem));
     });
 
-
-
-    /*    // for changing the image when selecting bottom nav bar
-       const secondImage = document.querySelector("bn2");
-       const bottomNavBtn = document.querySelectorAll(".bn-button");
-   
-   
-       bottomNavBtn.forEach(button => {
-           button.classList.remove("selected");
-   
-           button.addEventListener("click", function () {
-               button.classList.add("selected");
-               const img = button.querySelector(".bn-btn-img"); 
-                   img.src = "assets/svg/mobile/floating-wishlists-selected.svg"; 
-           });
-       }); */
-
     //change svg color when selected 
     const navBtns = document.querySelectorAll(".bn-button");
 
@@ -275,15 +258,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     window.addEventListener("scroll", function () {
-        currentScroll = window.scrollY;
-        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-        /*   console.log(
-              "currentScroll:", currentScroll,
-              "maxScroll:", maxScroll,
-              "scrollHeight:", document.documentElement.scrollHeight,
-              "clientHeight:", document.documentElement.clientHeight,
-              "inner height:", window.innerHeight,
-          ); */
+         currentScroll = window.scrollY;
+        console.log("current scroll : " + currentScroll);
+        // shrinkVideoScroll(currentScroll);
+        const scrollHeight = document.documentElement.scrollHeight;
+        const windowInnerHeight = window.innerHeight;
+        // const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        const maxScroll = scrollHeight - windowInnerHeight;
+        console.log(`maxScroll: ${maxScroll}, scrollHeight: ${scrollHeight} , windowHeight: ${windowInnerHeight} `)
 
         if (currentScroll === 0 || currentScroll >= maxScroll - 5) {
             floatingFooter.classList.remove("invisible");
@@ -296,6 +278,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         lastScroll = currentScroll;
     });
+
+  /*   // function to reduce the size of the video to 0 when scrolling
+    function shrinkVideoScroll(currentScroll) {
+        const navIconsContainer = document.querySelector(".nav-icons-container");
+        const navVideoVid = document.querySelector(".nav-video video");
+
+
+        const navIconsContainerOffsetTop = navIconsContainer.offsetTop;
+        if (currentScroll > navIconsContainerOffsetTop) {
+            navVideoVid.style.transform = `$ scale(${currentScroll / currentScroll + 1})`;
+        }
+
+
+    } */
 
 
     //to move the underline below nav icons during selection
@@ -310,39 +306,76 @@ document.addEventListener("DOMContentLoaded", () => {
             navIcon.classList.add("selected");
             const widthIcon = navIcon.querySelector(".nav-title").offsetWidth;
             const positionIcon = navIcon.querySelector(".nav-title").offsetLeft;
-            const navVideo = navIcon.querySelector(".nav-video video");
+            const navVideoVid = navIcon.querySelector(".nav-video video");
             // function to move the underline
             moveTheUnderline(widthIcon, positionIcon);
             // calling function to change video when selected
-            changeVideo(navVideo, index);
+            changeVideo(navVideoVid, index);
         });
     });
 
     // function moveTheUnderline(width, positionLeft) {
     function moveTheUnderline(width, postition) {
+        const navIconsContainer = document.querySelector(".nav-icons-container");
+        const navIconsContainerStyles = window.getComputedStyle(navIconsContainer);
+        const paddingLeft = parseFloat(navIconsContainerStyles.paddingLeft);
         underLine.style.width = `${width}px`;
-        underLine.style.transform = `translateX(${postition - 56}px)`;
+        underLine.style.transform = `translateX(${postition - paddingLeft}px)`;
+        // underLine.style.transform = `translateX(${postition - 56}px)`;
         //-56 px because of the padding of the parent container
 
     }
 
+    /*     // changing video file when selecting item
+        function changeVideo(navVideo, index) {
+            const videoWebm = navVideo.querySelector("source[type='video/webm']");
+            const videoMov = navVideo.querySelector("source[type='video/mp4']");
+            if (index == 0) {
+                videoWebm.src = "assets/media/house-selected.webm";
+                // videoMov.src = "assets/media/mov/house-selected.mov";
+    
+            } else if (index == 1) {
+                videoWebm.src = "assets/media/balloon-selected.webm";
+                // videoMov.src = "assets/media/mov/balloon-selected.mov";
+    
+            } else if (index == 2) {
+    
+                videoWebm.src = "assets/media/bell-selected.webm";
+                // videoMov.src = "assets/media/mov/bell-twirl-selected.mov";
+            }
+            navVideo.load();
+            navVideo.play();
+        } */
     // changing video file when selecting item
     function changeVideo(navVideo, index) {
         const videoWebm = navVideo.querySelector("source[type='video/webm']");
         const videoMov = navVideo.querySelector("source[type='video/mp4']");
-        if (index == 0) {
-            videoWebm.src = "assets/media/house-selected.webm";
-            videoMov.src = "assets/media/mov/house-selected.mov"
 
-        } else if (index == 1) {
-            videoWebm.src = "assets/media/mov/balloon-selected.webm";
-            videoMov.src = "assets/media/mov/balloon-selected.mov"
+        // check if browser supports hvc1 (.mov HEVC codec)
+        const canPlayMov = navVideo.canPlayType('video/mp4; codecs="hvc1"');
+        console.log(`Can browser support mov: ${canPlayMov || "Not supported"}`);
 
-        } else if (index == 2) {
-
-            videoWebm.src = "assets/media/bell-selected.webm";
-            videoMov.src = "assets/media/mov/bell-twirl-selected.mov"
+        if (index === 0) {
+            if (canPlayMov) {
+                videoMov.src = "assets/media/mov/house-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/house-selected.webm";
+            }
+        } else if (index === 1) {
+            if (canPlayMov) {
+                videoMov.src = "assets/media/mov/balloon-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/balloon-selected.webm";
+            }
+        } else if (index === 2) {
+            if (canPlayMov) {
+                videoMov.src = "assets/media/mov/bell-twirl-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/bell-selected.webm";
+            }
         }
+
+
         navVideo.load();
         navVideo.play();
     }
