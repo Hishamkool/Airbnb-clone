@@ -3,9 +3,9 @@
     margin: 0;
     font-family: "Cereal", sans-serif;
     box-sizing: border-box;
+
+
     /* outline: 1px solid pink; */
-    max-width: 100%;
-    scrollbar-width: none;
 
 }
 
@@ -124,7 +124,7 @@ a {
 }
 
 
-
+/* contains the video and the new icon */
 .nav-content .nav-video {
     padding-top: 8px;
     padding-bottom: 6px;
@@ -134,17 +134,42 @@ a {
     align-items: center;
     position: relative;
 
+
+}
+
+/* to reduce the scale of the icon when scrolling */
+.nav-content .nav-video.scaleZero {
+    /* display: none; */
+    animation: shrinkVideo 2s ease both;
+}
+
+.nav-video.scaleZero .new-tag {
+    /* display: none; */
+    animation: shrinkVideo 2s ease both;
+
+}
+
+@keyframes shrinkVideo {
+    from {
+        transform: scale(2);
+    }
+
+    to {
+        transform: scale(0);
+    }
 }
 
 .nav-video video {
     height: 36px;
-    /* height: 20px; */
+
     width: 36px;
     transform: scale(2);
+    /* 
+    */
 }
 
-.nav-video .new-tag {
 
+.nav-video .new-tag {
     padding: 3px 6px;
     border-radius: 10px 10px 10px 2px;
     cursor: pointer;
@@ -187,7 +212,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    
+
 
 
 }
@@ -600,10 +625,24 @@ a {
     .nav-icons-container {
         padding: 16px 56px 0;
     }
+
+    .category-scroll {
+        padding: 4px 24px 8px 24px;
+    }
+
+    .category-title {
+        margin: 32px 24px 14px 24px;
+    }
+
 }
 
 @media screen and (min-width:412px) {
     .nav-icons-container {
         padding: 16px 64px 0;
     }
+}
+
+@media screen and (min-width:609px) {
+    /* the size of the nav icons reduces */
+
 }

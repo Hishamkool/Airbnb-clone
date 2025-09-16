@@ -260,7 +260,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("scroll", function () {
         let currentScroll = window.scrollY;
         console.log("current scroll : " + currentScroll);
-        // shrinkVideoScroll(currentScroll);
+        shrinkVideoScroll(currentScroll);
         const scrollHeight = document.documentElement.scrollHeight;
         const windowInnerHeight = window.innerHeight;
         // const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
@@ -279,19 +279,37 @@ document.addEventListener("DOMContentLoaded", () => {
         lastScroll = currentScroll;
     });
 
-  /*   // function to reduce the size of the video to 0 when scrolling
+    // function to reduce the size of the video to 0 when scrolling
     function shrinkVideoScroll(currentScroll) {
-        const navIconsContainer = document.querySelector(".nav-icons-container");
-        const navVideoVid = document.querySelector(".nav-video video");
+        const navVideos = document.querySelectorAll(".nav-video");
+        const anyNavVideo = document.querySelector(".nav-video");
+        const navVideoHeight = anyNavVideo.offsetHeight ;
 
 
-        const navIconsContainerOffsetTop = navIconsContainer.offsetTop;
-        if (currentScroll > navIconsContainerOffsetTop) {
-            navVideoVid.style.transform = `$ scale(${currentScroll / currentScroll + 1})`;
-        }
+        let maxScroll = 300;
+        let scale = Math.max(0, 1 - currentScroll / maxScroll)
+        let newHeight = Math.max(0, navVideoHeight * (1 - currentScroll / maxScroll));
+        navVideos.forEach(navVideo => {
 
 
-    } */
+
+            navVideo.style.transform = `scale(${scale})`;
+            navVideo.style.height = `${newHeight}px`;
+            console.log(`new height:${newHeight}`);
+
+            if (scale === 0) {
+                navVideo.style.display = "none";
+
+            } else {
+                navVideo.style.display = "flex";
+            }
+
+        });
+
+
+
+    }
+
 
 
     //to move the underline below nav icons during selection
