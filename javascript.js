@@ -258,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     window.addEventListener("scroll", function () {
-         currentScroll = window.scrollY;
+        let currentScroll = window.scrollY;
         console.log("current scroll : " + currentScroll);
         // shrinkVideoScroll(currentScroll);
         const scrollHeight = document.documentElement.scrollHeight;

@@ -511,17 +511,16 @@ a {
 /* floating bottom navigation bar */
 .floating-footer {
     transform: translateY(0);
-    position: fixed;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: sticky;
     bottom: 0px;
-    left: 0;
-    right: 0;
+    left: 0; 
     width: 100%;
     background-color: white;
-    height: 65px;
+    height: 65px; 
     transition: 0.3s ease-in;
 }
 
