@@ -4,6 +4,8 @@
     font-family: "Cereal", sans-serif;
     box-sizing: border-box;
     /* outline: 1px solid pink; */
+    max-width: 100%;
+    scrollbar-width: none;
 
 }
 
@@ -32,6 +34,7 @@ a {
     top: 0;
     left: 0;
     background-color: #FFFFFF;
+
 }
 
 
@@ -184,7 +187,7 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 100%;
+    
 
 
 }
@@ -351,6 +354,7 @@ a {
 
 /* inspitation section */
 .Inspiration-section {
+
     padding-block: 48px;
     background-color: #F7F7F7;
 }
@@ -517,10 +521,10 @@ a {
     align-items: center;
     position: sticky;
     bottom: 0px;
-    left: 0; 
-    width: 100%;
+    left: 10rem;
+
     background-color: white;
-    height: 65px; 
+    height: 65px;
     transition: 0.3s ease-in;
 }
 
