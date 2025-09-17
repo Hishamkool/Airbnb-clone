@@ -3,9 +3,7 @@
     margin: 0;
     font-family: "Cereal", sans-serif;
     box-sizing: border-box;
-
-
-    /* outline: 1px solid pink; */
+    /* outline: 1px solid black; */
 
 }
 
@@ -21,6 +19,7 @@ a {
 }
 
 :root {
+
     /* colors */
     --color-text-default: #222222;
     --color-text-subtitle: #6A6A6A;
@@ -29,6 +28,8 @@ a {
 
 /* header  section*/
 .header {
+    
+    /* indebug */
     position: sticky;
     z-index: 10;
     top: 0;
@@ -41,10 +42,11 @@ a {
 
 .header-top {
     width: 100%;
+
 }
 
 .search-container {
-    margin: 12px 24px 0;
+    padding: 12px 24px 0;
 }
 
 .search-button {
@@ -102,6 +104,8 @@ a {
 
 
 /* each nav item */
+ 
+
 .nav-icon .nav-content {
     display: flex;
     flex-direction: column;
@@ -109,7 +113,6 @@ a {
     align-items: center;
     min-width: 68px;
     margin-bottom: 8px;
-
 }
 
 
@@ -123,6 +126,10 @@ a {
     transition: 0.3s ease;
 }
 
+/* main section categories */
+#categories {
+    margin-bottom: 49px;
+}
 
 /* contains the video and the new icon */
 .nav-content .nav-video {
@@ -380,14 +387,16 @@ a {
 /* inspitation section */
 .Inspiration-section {
 
-    padding-block: 48px;
+    padding: 48px 16px;
     background-color: #F7F7F7;
+    position: relative;
 }
 
 .inspiration-container {
-    margin: 0 16px;
+   
     border-bottom: 1px solid lightgrey;
-    padding-bottom: 10px;
+    box-sizing: content-box;
+    padding-bottom: 8px;
 }
 
 .inspiration-text {
@@ -395,16 +404,37 @@ a {
     font-weight: 500;
     line-height: 26px;
     color: var(--color-text-default);
-    margin-bottom: 8px;
+    letter-spacing: -0.22px;
+    line-break: strict;
+
 }
 
 .inspiration-arrows {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* margin: 0 16px;
-    margin-top: 10px; */
 
+}
+
+.inspiration-arrows .arrow-cnt {
+    height: 50px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+
+}
+
+.arrow-cnt:nth-child(1) {
+    justify-content: flex-start;
+    position: absolute;
+    left: 4px;
+
+}
+
+.arrow-cnt:nth-child(2) {
+    justify-content: flex-end;
+    position: absolute;
+    right: 4px;
 }
 
 .inspiration-arrows img {
@@ -414,7 +444,7 @@ a {
 
 /* footer section */
 .footer-container {
-    padding: 0 24px;
+    padding: 0 24px; 
     background-color: #F7F7F7;
 }
 
@@ -427,7 +457,7 @@ a {
 /* heading container */
 .links-head {
     margin-bottom: 16px;
-    margin-block-start: 16px;
+
     margin-block-end: 16px;
 }
 
@@ -439,6 +469,12 @@ a {
 }
 
 /* container for all links */
+.links-group .links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .links-group .links {
     display: flex;
     flex-direction: column;
@@ -453,13 +489,20 @@ a {
     color: var(--color-text-default);
 }
 
+.links li {
+    list-style: none;
+    line-height: 20.01px;
+}
+
 /* footer social */
 .footer-lan-cur {
     display: flex;
     flex-direction: row;
+    margin-bottom: 8px;
 }
 
 .lng-select {
+    margin-right: 4px;
     padding: 6px 0;
     padding-right: 8px;
     display: flex;
@@ -484,6 +527,9 @@ a {
 }
 
 .currency {
+    display: flex;
+    flex-direction: row;
+    column-gap: 8px;
     padding: 6px 8px;
     font-weight: 500;
     font-size: 14px;
@@ -496,19 +542,24 @@ a {
     margin-bottom: 12px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
+    align-items: center;
+    gap: 24px;
+   
 }
 
 .footer-social a img {
     height: 16px;
     width: 16px;
+  
 }
+ 
 
 .copyright {
     margin-bottom: 4px;
     font-size: 14px;
     line-height: 18px;
     color: var(--color-text-default);
+    padding-top: 2.5px;/* check for other screen sizes */
 
 }
 
@@ -534,7 +585,8 @@ a {
 /* footer-bottom */
 .footer-bottom {
     padding: 24px 0;
-    padding-bottom: calc(70px + 25px);
+    /* padding-bottom: calc(70px + 25px); */
+    position: relative;
 }
 
 /* floating bottom navigation bar */
@@ -547,7 +599,6 @@ a {
     position: sticky;
     bottom: 0px;
     left: 10rem;
-
     background-color: white;
     height: 65px;
     transition: 0.3s ease-in;
@@ -595,6 +646,7 @@ a {
     display: flex;
     flex: 1 1 0%;
     max-width: 20%;
+    min-width: 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -616,7 +668,7 @@ a {
 
 .bn-btn-txt {
     color: inherit;
-    font-size: 10px;
+    font-size: 9px;
     font-weight: 400;
     line-height: 12px;
 }

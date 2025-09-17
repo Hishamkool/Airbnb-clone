@@ -262,14 +262,14 @@ document.addEventListener("DOMContentLoaded", () => {
         let currentScroll = window.scrollY;
         if (false) {
 
-            console.log("current scroll : " + currentScroll);
+            debug && console.log("current scroll : " + currentScroll);
         }
         shrinkVideoScroll(currentScroll);
         const scrollHeight = document.documentElement.scrollHeight;
         const windowInnerHeight = window.innerHeight;
         // const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
         const maxScroll = scrollHeight - windowInnerHeight;
-        console.log(`maxScroll: ${maxScroll}, scrollHeight: ${scrollHeight} , windowHeight: ${windowInnerHeight} `)
+        debug && console.log(`maxScroll: ${maxScroll}, scrollHeight: ${scrollHeight} , windowHeight: ${windowInnerHeight} `)
 
         if (currentScroll === 0 || currentScroll >= maxScroll - 5) {
             floatingFooter.classList.remove("invisible");
@@ -286,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // function to reduce the size of the video to 0 when scrolling
     function shrinkVideoScroll(currentScroll) {
         const allNavVids = document.querySelectorAll(".nav-video");
+        const navIconsContainer = document.querySelector(".nav-icons-container");
 
 
         allNavVids.forEach(navVideo => {
@@ -297,15 +298,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 debug && console.log("originalHeight - navVid :", vidHeight);
 
             }
+            if (!navIconsContainer.dataset.originalPadding) {
+                const containerSyle = window.getComputedStyle(navIconsContainer);
+                const paddingtop = parseFloat(containerSyle.paddingTop);
+                navIconsContainer.dataset.originalPadding = paddingtop;
+            }
+            const baseHeight = parseFloat(navVideo.dataset.originalHeight);
+            const basePaddingTopCnt = parseFloat(navIconsContainer.dataset.originalPadding);
 
-            const originalHeight = parseFloat(navVideo.dataset.originalHeight);
             let maxScroll = 300;
-            let newScale = Math.max(0, 1 - currentScroll / maxScroll)
+            let newScale = Math.max(0, 1 - currentScroll / maxScroll);
+
 
             /* const vidHeight = navVideo.clientHeight;
+            const vidStyle = window.getComputedStyle(navVideo);
             const vidOffsetHeight = navVideo.offsetHeight;
             const vidHeight = 50;
-            const vidStyle = window.getComputedStyle(navVideo);
             const vidPaddTop = parseFloat(vidStyle.paddingTop);
             const vidPadBottom = parseFloat(vidStyle.paddingBottom); 
             const totalVidHeight = vidHeight + vidPaddTop + vidPadBottom;
@@ -321,10 +329,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
             // calculating the new height with respect to scroll
-            let newHeight = Math.max(0, originalHeight * (1 - currentScroll / maxScroll));
+            let newHeight = Math.max(0, baseHeight * (1 - currentScroll / maxScroll));
+            //dynamically calculating the padding 
+            let newPadding = Math.max(0, basePaddingTopCnt * (1 - currentScroll / maxScroll));
+
             debug && console.log("new height:", newHeight);
             navVideo.style.transform = `scale(${newScale})`;
             navVideo.style.height = `${newHeight}px`;
+            navIconsContainer.style.paddingTop = `${newPadding}px`;
 
 
         });
@@ -394,7 +406,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // check if browser supports hvc1 (.mov HEVC codec)
         const canPlayMov = navVideo.canPlayType('video/mp4; codecs="hvc1"');
-        console.log(`Can browser support mov: ${canPlayMov || "Not supported"}`);
+        debug && console.log(`Can browser support mov: ${canPlayMov || "Not supported"}`);
 
         if (index === 0) {
             if (canPlayMov) {
