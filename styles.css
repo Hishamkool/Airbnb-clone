@@ -100,8 +100,6 @@ a {
     /* for underline which is moving */
 }
 
-
-
 /* each nav item */
 
 
@@ -120,16 +118,18 @@ a {
     position: absolute;
     bottom: 0px;
     height: 3px;
-    
+
     /* width: 30px; */
     background: black;
     transition: 0.3s ease;
 }
-.moving-underline.scrolled{
+
+.moving-underline.scrolled {
     bottom: -3;
-    
+
 }
-.header-desktop{
+
+.header-desktop {
     display: none;
 }
 
@@ -147,8 +147,6 @@ a {
     justify-content: center;
     align-items: center;
     position: relative;
-
-
 }
 
 /* to reduce the scale of the icon when scrolling */
@@ -724,20 +722,105 @@ a {
 }
 
 @media screen and (min-width:609px) {
-    /* the size of the nav icons reduces*/ 
+    /* the size of the nav icons reduces*/
 }
 
 @media screen and (min-width:744px) {
-    .header-top{
-        display: none;
-    }
-    .header-bottom{
+    .header-top {
         display: none;
     }
 
-  
-    .header-desktop{
-        display: flex;
+    .header-bottom {
+        display: none;
     }
-     
+
+
+    .header-desktop {
+        display: block;
+    }
+
+    .header-top-dsk {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        height: 80px;
+    }
+
+    .actions>div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #F2F2F2;
+        border-radius: 50%;
+    }
+
+    .act-glb-cnt {
+        height: 40px;
+        width: 40px;
+    }
+
+    .act-menu-cnt {
+        height: 40px;
+        width: 40px;
+    }
+
+    .header-top-dsk {
+        padding-inline: 24px;
+    }
+
+
+    /* nav icons desktop */
+    .nav-icons-container-desk {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 22px auto 24px;
+        width: 500px;
+        position: relative;
+        column-gap: 35px;
+
+    }
+
+    /* video & titile */
+    .nav-content-desk {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-bottom: 12px;
+    }
+
+    .nav-title-desk {
+        margin-left: 16px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+        color: #222222;
+        cursor: pointer;
+    }
+
+    .nav-video-desk video {
+        height: 36px;
+        width: 36px;
+        transform: scale(2);
+    }
+
+    .moving-underline-desk {
+        height: 3px;
+        background-color: black;
+        min-width: 30px;
+        width: calc(179px - 79px);
+        transform: translateX(40px);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
 }
