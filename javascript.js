@@ -1,6 +1,12 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     let debug = true;
+    //to set outline if in debug mode
+    if (debug) {
+        const style = document.createElement("style");
+        style.textContent = `*{outline : 1px solid pink}`;
+        document.head.appendChild(style);
+    }
     // creating containers with different colors to simulate the category cards
 
     /* const parentContainer = document.querySelector(".category-scroll");
@@ -49,18 +55,18 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             title: "Popular homes in Bengaluru",
             listings: [
-                { img: "assets/avif/000.avif", name: "Couple Private Studio, Koramangala", price: "₹4,500 for 2 nights", rating: "4.70", isGuestFav: true },
-                { img: "assets/avif/001.avif", name: "Cozy 1BHK, Indiranagar", price: "₹5,000 for 2 nights", rating: "4.72", isGuestFav: true },
-                { img: "assets/avif/002.avif", name: "Family Suite near MG Road", price: "₹7,500 for 2 nights", rating: "4.75", isGuestFav: true },
-                { img: "assets/avif/003.avif", name: "Stylish 2BHK, Whitefield", price: "₹6,800 for 2 nights", rating: "4.78", isGuestFav: true },
-                { img: "assets/avif/004.avif", name: "Luxury 3BHK Villa, JP Nagar", price: "₹12,000 for 2 nights", rating: "4.85", isGuestFav: true },
-                { img: "assets/avif/005.avif", name: "Charming Villa, Yelahanka", price: "₹10,000 for 2 nights", rating: "4.90", isGuestFav: true },
-                { img: "assets/avif/006.avif", name: "Couples’ Getaway, HSR Layout", price: "₹5,000 for 2 nights", rating: "4.80", isGuestFav: true },
-                { img: "assets/avif/007.avif", name: "Stylish 3 Rooms, Koramangala", price: "₹8,000 for 2 nights", rating: "4.85", isGuestFav: true }
+                { img: "assets/avif/000.avif", name: "Flat in Bangalore Urban", price: "₹4,500 for 2 nights", rating: "4.70", isGuestFav: true },
+                { img: "assets/avif/001.avif", name: "Apartment in Bangalore Urban", price: "₹5,000 for 2 nights", rating: "4.72", isGuestFav: true },
+                { img: "assets/avif/002.avif", name: "Flat in Bangalore Urban", price: "₹7,500 for 2 nights", rating: "4.75", isGuestFav: true },
+                { img: "assets/avif/003.avif", name: "Place to stay in Bangalore Urban", price: "₹6,800 for 2 nights", rating: "4.78", isGuestFav: true },
+                { img: "assets/avif/004.avif", name: "Flat in Bangalore Urban", price: "₹12,000 for 2 nights", rating: "4.85", isGuestFav: true },
+                { img: "assets/avif/005.avif", name: "Room in Bangalore Urban", price: "₹10,000 for 2 nights", rating: "4.90", isGuestFav: true },
+                { img: "assets/avif/006.avif", name: "Flat in Koramangala", price: "₹5,000 for 2 nights", rating: "4.80", isGuestFav: true },
+                { img: "assets/avif/007.avif", name: "Flat in Bangalore Urban", price: "₹8,000 for 2 nights", rating: "4.85", isGuestFav: true }
             ]
         },
         {
-            title: "Available Next Month in Pune",
+            title: "Available next Month in Pune",
             listings: [
                 { img: "assets/avif/008.avif", name: "Modern Studio, Kalyani Nagar", price: "₹4,800 for 2 nights", rating: "4.68", isGuestFav: true },
                 { img: "assets/avif/009.avif", name: "Cozy 1BHK, Hinjewadi", price: "₹5,200 for 2 nights", rating: "4.72", isGuestFav: true },
@@ -112,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
         {
-            title: "Places to Stay in Hyderabad",
+            title: "Places to stay in Hyderabad",
             listings: [
                 { img: "assets/avif/040.avif", name: "Compact 1BHK Apartment, Banjara Hills", price: "₹3,800 for 2 nights", rating: "4.65", isGuestFav: true },
                 { img: "assets/avif/041.avif", name: "Minimalist Studio Flat, HITEC City", price: "₹4,000 for 2 nights", rating: "4.68", isGuestFav: true },
@@ -264,6 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             debug && console.log("current scroll : " + currentScroll);
         }
+        underlinePositionScrolling(currentScroll);
         shrinkVideoScroll(currentScroll);
         const scrollHeight = document.documentElement.scrollHeight;
         const windowInnerHeight = window.innerHeight;
@@ -271,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const maxScroll = scrollHeight - windowInnerHeight;
         debug && console.log(`maxScroll: ${maxScroll}, scrollHeight: ${scrollHeight} , windowHeight: ${windowInnerHeight} `)
 
-        if (currentScroll === 0 || currentScroll >= maxScroll - 5) {
+        if (currentScroll === 0 || currentScroll >= maxScroll - 15) {
             floatingFooter.classList.remove("invisible");
         } else if (currentScroll > lastScroll) {
             floatingFooter.classList.add("invisible");
@@ -345,11 +352,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-
-
-    //to move the underline below nav icons during selection
     const underLine = document.querySelector(".moving-underline");
     const navIcons = document.querySelectorAll(".nav-icon");
+
+    //initial section of the nav icon - because width is not set , depends upon the first nav title width
+    if (navIcons.length > 0) {
+        initialNavIconSelection();
+    }
+
+    function initialNavIconSelection() {
+        const firstNavIcon = navIcons[0];
+        firstNavIcon.classList.add("selected");
+        const widthFirstIcon = firstNavIcon.querySelector(".nav-title").offsetWidth;
+        const positionFirstIcon = firstNavIcon.querySelector(".nav-title").offsetLeft;
+        moveTheUnderline(widthFirstIcon, positionFirstIcon);
+
+    }
+
+    //to move the underline below nav icons during selection
 
     navIcons.forEach((navIcon, index) => {
         navIcon.addEventListener("click", function () {
@@ -360,12 +380,16 @@ document.addEventListener("DOMContentLoaded", () => {
             const widthIcon = navIcon.querySelector(".nav-title").offsetWidth;
             const positionIcon = navIcon.querySelector(".nav-title").offsetLeft;
             const navVideoVid = navIcon.querySelector(".nav-video video");
+
+            /* //calling initial selection 
+            initialNavIconSelection() */
             // function to move the underline
             moveTheUnderline(widthIcon, positionIcon);
             // calling function to change video when selected
             changeVideo(navVideoVid, index);
         });
     });
+
 
     // function moveTheUnderline(width, positionLeft) {
     function moveTheUnderline(width, postition) {
@@ -377,6 +401,16 @@ document.addEventListener("DOMContentLoaded", () => {
         // underLine.style.transform = `translateX(${postition - 56}px)`;
         //-56 px because of the padding of the parent container
 
+    }
+    //adding margin bottom to the underline while scrolling
+    function underlinePositionScrolling(currentScroll) {
+
+        const movingUnderline = document.querySelector(".moving-underline");
+        if (currentScroll === 0 || currentScroll <300) {
+            movingUnderline.classList.remove("scrolled");
+        } else if (currentScroll >= 300) {
+            movingUnderline.classList.add("scrolled");
+        }
     }
 
     /*     // changing video file when selecting item
