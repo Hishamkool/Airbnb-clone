@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    let debug = true;
+    let debug = false;
     //to set outline if in debug mode
     if (debug) {
         const style = document.createElement("style");

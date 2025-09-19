@@ -181,7 +181,7 @@ a {
 }
 
 
-.nav-video .new-tag {
+.new-tag {
     padding: 3px 6px;
     border-radius: 10px 10px 10px 2px;
     cursor: pointer;
@@ -192,9 +192,12 @@ a {
     background: linear-gradient(357.5deg, #3e567c 1.59%, #3a5475 21.23%, #2d3c5b 58.6%, #809dc0 97.4%);
 }
 
-.new-tag .new-txt {
-    color: #ffffff;
+.new-txt {
+    color: #FFFFFF
+;
+    
     line-height: 10px;
+
     font-weight: 700;
     text-align: center;
     letter-spacing: 0.04em;
@@ -224,8 +227,6 @@ a {
     display: flex;
     flex-direction: row;
     align-items: center;
-
-
 
 }
 
@@ -737,6 +738,8 @@ a {
 
     .header-desktop {
         display: block;
+        background: linear-gradient(180deg, #ffffff 39.9%, #f8f8f8 100%);
+        padding-bottom: 40px;
     }
 
     .header-top-dsk {
@@ -779,11 +782,13 @@ a {
 
     /* nav icons desktop */
     .nav-icons-container-desk {
+        position: relative;
+        right: -30px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin: 22px auto 24px;
+        margin: 22px 0 24px;
         width: 500px;
         position: relative;
         column-gap: 35px;
@@ -798,13 +803,45 @@ a {
         margin-bottom: 12px;
     }
 
+    .nav-video-desk {
+        position: relative;
+    }
+
+    .new-tag-desk {
+        position: absolute;
+        top: -10px;
+
+    }
+    .new-txt-desk{
+        list-style: 11.44px;
+        
+    }
+
+
     .nav-title-desk {
-        margin-left: 16px;
+
         font-size: 14px;
-        font-weight: 600;
         line-height: 18px;
         color: #222222;
+        font-weight: 400;
         cursor: pointer;
+    }
+
+    .nav-title-desk.selected {
+        font-weight: 600;
+
+    }
+
+    .home-dsk {
+        margin-left: 16px;
+    }
+
+    .exp-dsk {
+        margin-left: 8px;
+    }
+
+    .ser-desk {
+        margin-left: 12px;
     }
 
     .nav-video-desk video {
@@ -812,6 +849,7 @@ a {
         width: 36px;
         transform: scale(2);
     }
+
 
     .moving-underline-desk {
         height: 3px;
@@ -823,4 +861,122 @@ a {
         bottom: 0;
         left: 0;
     }
+
+    .header-bottom-dsk {
+        padding-inline: 24px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+
+    }
+
+    .searchbar-desk {
+        border-radius: 32px;
+
+        height: 66px;
+        max-width: 850px;
+
+
+        /* display: flex; */
+        grid-template-columns: minmax(0, 2fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 2fr);
+        display: grid;
+        align-items: center;
+        column-gap: 2px;
+        background-color: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        box-shadow: rgba(0, 0, 0, 0.1) 0 8px 24px 0;
+        position: relative;
+        /* for search bubble */
+    }
+
+    .searchbar-desk::selection {
+        background-color: #EBEBEB;
+    }
+
+
+
+    .divider-bubble {
+        height: 32px;
+        background-color: #DDDDDD;
+        width: 1px;
+    }
+
+    .tsb-head-cnt {
+        font-size: 14px;
+        line-height: 20.02px;
+        height: 18px;
+
+    }
+
+    .tsb-head {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        width: 100%;
+        overflow: hidden;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+
+    }
+
+    .tsb-span {
+        width: 100%;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+        color: #6A6A6A; 
+        overflow: hidden;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .bubble {
+        padding: 15px 24px;
+        border-radius: 32px;
+        width: 100%;
+
+    }
+
+    .where-bubble {
+        padding: 15px 32px;
+    }
+
+    .who-bubble {
+
+        padding-right: 130px;
+    }
+
+    .search-bubble {
+        position: absolute;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(to right, #E61E4D 0%, #E31C5F 50%, #D70466 100%);
+        padding: 10px;
+        margin: 10px;
+        border-radius: 24px;
+        gap: 8px;
+        height: 48px;
+        min-width: 48px;
+    } 
+
+    .search-bubble-txt {
+        display: none;
+        font-size: 16px;
+        font-weight: 500;
+        color: #FFFFFF;
+        letter-spacing: normal;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    /* categroy section */
+    .category-scroll {
+        grid-auto-columns: calc(25% - 8.25px);
+    }
+
 }
