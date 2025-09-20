@@ -93,12 +93,12 @@
                 </div>
             </div>
 
-            <!-- for desktop items `````````````````````````````````` -->
+            <!-- for desktop items ````````````````````````````````````````````````````````````````````````````````````````````` -->
             <div class="header-desktop">
                 <div class="header-top-dsk">
                     <div class="logo-desk">
                         <img class="airbnb-tab-logo" src="assets/svg/tablet/airbnb-tab.svg" alt="airbnb-logo">
-                        <!-- <img src="assets/svg/desktop/airbnb-logo.svg" alt="airbnb-logo"> -->
+                        <img class="airbnb-desk-logo" src="assets/svg/desktop/airbnb-logo.svg" alt="airbnb-logo">
                     </div>
 
 
@@ -108,7 +108,7 @@
                     <!--nav container desktop-->
                     <div class="nav-icons-container-desk">
                         <!-- homes button -->
-                        <div class="nav-icon-desk selected">
+                        <div class="nav-icon-desk selected home-icon-dsk">
                             <a href="#" class="nav-content-desk">
                                 <span class="nav-video-desk">
                                     <video autoplay muted playsinline=""
@@ -129,8 +129,9 @@
                         </div>
                         <!-- experiences button -->
                         <div class="nav-icon-desk selected">
-                            <a href="#" class="nav-content-desk">
-                                <span class="nav-video-desk">
+                            <a href="#" class="nav-content-desk"> 
+
+                                <span class="nav-video-desk scale-vid-desk"><!-- scale for experience and bell only -->
                                     <video autoplay muted playsinline="" preload="auto"
                                         poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/e47ab655-027b-4679-b2e6-df1c99a5c33d.png?im_w=240">
                                         <source src="assets/media/balloon-twirl.webm" type="video/webm">
@@ -148,9 +149,10 @@
                         </div>
 
                         <!-- Services button -->
-                        <div class="nav-icon-desk selected">
+                        <div class="nav-icon-desk selected ser-icon-desk">
                             <a href="#" class="nav-content-desk">
-                                <span class="nav-video-desk">
+
+                                <span class="nav-video-desk scale-vid-desk"> <!-- scale for experience and bell only -->
                                     <video autoplay muted playsinline="" preload="auto"
                                         poster="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/3d67e9a9-520a-49ee-b439-7b3a75ea814d.png?im_w=240">
                                         <source src="assets/media/bell-twirl.webm" type="video/webm">
@@ -234,11 +236,24 @@
 
     <!-- main content of the page containing the scrollable cards -->
     <main id="categories">
-        <!-- <section class="category-section">
+
+        <section class="category-section">
             <div class="category-title">
                 <span>Popular homes in Bengaluru</span>
                 <div class="ct-right-arrow">
                     <img src="assets/svg/mobile/right-arrow-categories.svg" alt="" aria-hidden="true">
+                </div>
+              
+                <div class="spacer"></div>
+          
+                <div class="title-arrows-cnt-tab">
+
+                    <button href="#" class="tact-disabled tact-arrows" aria-hidden="true" >
+                        <img src="assets/svg/tablet/cat-left-arrow.svg" alt="">
+                    </button> 
+                    <button href="#" class=" tact-arrows" aria-hidden="true">
+                        <img src="assets/svg/tablet/cat-right-arrow.svg" alt="">
+                    </button>
                 </div>
 
             </div>
@@ -276,7 +291,8 @@
                 </div>
             </div>
 
-        </section> -->
+        </section>
+
     </main>
     <section class="Inspiration-section">
         <div class="inspiration-container">
@@ -313,69 +329,76 @@
 
 
                     </div>
-                </div>
+                    <div class="links-group">
+                        <!-- Support -->
+                        <div class="links-head">
+                            <h3>Hosting</h3>
+                        </div>
+                        <ul class="links">
+                            <li><a href="#">Airbnb your home</a></li>
+                            <li><a href="#">Airbnb your experience</a></li>
+                            <li><a href="#">Airbnb your service</a></li>
+                            <li><a href="#">AirCover for Hosts</a></li>
+                            <li><a href="#">Hosting resources</a></li>
+                            <li><a href="#">Community forum</a></li>
+                            <li><a href="#">Hosting responsibly</a></li>
+                            <li><a href="#">Join a free Hosting class</a></li>
+                            <li><a href="#">Find a co-host</a></li>
+                        </ul>
 
-                <div class="links-group">
-                    <!-- Support -->
-                    <div class="links-head">
-                        <h3>Hosting</h3>
                     </div>
-                    <ul class="links">
-                        <li><a href="#">Airbnb your home</a></li>
-                        <li><a href="#">Airbnb your experience</a></li>
-                        <li><a href="#">Airbnb your service</a></li>
-                        <li><a href="#">AirCover for Hosts</a></li>
-                        <li><a href="#">Hosting resources</a></li>
-                        <li><a href="#">Community forum</a></li>
-                        <li><a href="#">Hosting responsibly</a></li>
-                        <li><a href="#">Join a free Hosting class</a></li>
-                        <li><a href="#">Find a co-host</a></li>
-                    </ul>
 
-                </div>
-
-                <div class="links-group">
-                    <!-- Support -->
-                    <div class="links-head">
-                        <h3>Airbnb</h3>
+                    <div class="links-group">
+                        <!-- Support -->
+                        <div class="links-head">
+                            <h3>Airbnb</h3>
+                        </div>
+                        <ul class="links">
+                            <li><a href="#">2025 Summer Release</a></li>
+                            <li><a href="#">Newsroom</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Investors</a></li>
+                            <li><a href="#">Airbnb.org emergency stays</a></li>
+                            <!-- <li><a href="#">Help</a></li> -->
+                        </ul>
                     </div>
-                    <ul class="links">
-                        <li><a href="#">2025 Summer Release</a></li>
-                        <li><a href="#">Newsroom</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Investors</a></li>
-                        <li><a href="#">Airbnb.org emergency stays</a></li>
-                        <!-- <li><a href="#">Help</a></li> -->
-                    </ul>
                 </div>
+
+
             </div>
 
             <div class="footer-bottom">
-                <div class="footer-lan-cur">
-                    <button class="lng-select">
-                        <img class="globe-icon" src="assets/svg/mobile/lang-globe.svg" alt="" aria-hidden="true">
-                        <span class="lng-text">English (IN)</span>
-                    </button>
-                    <div class="currency">
-                        <span>₹</span>
-                        <span class="currency-text">INR</span>
+                <div class="lan-social-cnt">
+                    <div class="footer-lan-cur">
+                        <button class="lng-select">
+                            <img class="globe-icon" src="assets/svg/mobile/lang-globe.svg" alt="" aria-hidden="true">
+                            <span class="lng-text">English (IN)</span>
+                        </button>
+                        <div class="currency">
+                            <span>₹</span>
+                            <span class="currency-text">INR</span>
+                        </div>
                     </div>
-                </div>
-                <div class="footer-social">
-                    <a href="#">
-                        <img src="assets/svg/mobile/facebook-icon.svg" alt="facebook socail media icon">
-                    </a>
-                    <a href="#">
-                        <img src="assets/svg/mobile/twitter.svg" alt="twitter socail media icon">
-                    </a>
-                    <a href="#">
-                        <img src="assets/svg/mobile/instagram-icon.svg" alt="">
-                    </a>
+                    <div class="footer-social">
+                        <a href="#">
+                            <img src="assets/svg/mobile/facebook-icon.svg" alt="facebook socail media icon">
+                        </a>
+                        <a href="#">
+                            <img src="assets/svg/mobile/twitter.svg" alt="twitter socail media icon">
+                        </a>
+                        <a href="#">
+                            <img src="assets/svg/mobile/instagram-icon.svg" alt="">
+                        </a>
+                    </div>
                 </div>
                 <div class="footer-terms">
                     <div class="copyright">
                         <span>© 2025 Airbnb, Inc.</span>
                     </div>
+                    <div class="seperator tab-sep">
+                            <!-- <div class="sep"></div> -->
+                            &middot;
+                        </div>
                     <div class="terms">
                         <span>Privacy</span>
                         <div class="seperator">
@@ -395,7 +418,7 @@
                 </div>
             </div>
         </div>
-        </div>
+
     </footer>
 
     <div class="floating-footer">

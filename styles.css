@@ -29,11 +29,11 @@ a {
 .header {
 
     /* indebug */
-    position: sticky;
+    /*  position: sticky;
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: #FFFFFF;
+    background-color: #FFFFFF; */
 
 }
 
@@ -193,9 +193,8 @@ a {
 }
 
 .new-txt {
-    color: #FFFFFF
-;
-    
+    color: #FFFFFF;
+
     line-height: 10px;
 
     font-weight: 700;
@@ -228,11 +227,22 @@ a {
     flex-direction: row;
     align-items: center;
 
+
+
 }
 
 .ct-right-arrow {
     margin-left: 2px;
     padding-right: 12px;
+}
+
+.spacer {
+    display: flex;
+    flex: 1 1 0;
+}
+
+.title-arrows-cnt-tab {
+    display: none;
 }
 
 .category-title span {
@@ -453,10 +463,17 @@ a {
     padding: 0 24px;
     background-color: #F7F7F7;
     padding-bottom: 15px;
+    /* instead of the 80px padding bottom  */
+}
+
+.footer-top {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
 }
 
 .links-group {
-
+    grid-column: 1 / -1;
     padding: 24px 0;
     border-bottom: 1px solid #DDDDDD;
 }
@@ -464,7 +481,6 @@ a {
 /* heading container */
 .links-head {
     margin-bottom: 16px;
-
     margin-block-end: 16px;
 }
 
@@ -560,13 +576,16 @@ a {
 
 }
 
+.tab-sep {
+    display: none;
+}
 
 .copyright {
     margin-bottom: 4px;
     font-size: 14px;
-    line-height: 18px;
+    line-height: 20.02px;
     color: var(--color-text-default);
-    padding-top: 2.5px;
+    /* padding-top: 2.5px; */
     /* check for other screen sizes */
 
 }
@@ -578,7 +597,7 @@ a {
     align-items: center;
     font-size: 14px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 20.02px;
     color: var(--color-text-default);
 }
 
@@ -594,7 +613,11 @@ a {
 .footer-bottom {
     padding: 24px 0;
     /* padding-bottom: calc(70px + 25px); */
-    position: relative;
+    /* position: relative; */
+}
+
+.lan-social-cnt {
+    display: block;
 }
 
 /* floating bottom navigation bar */
@@ -740,13 +763,28 @@ a {
         display: block;
         background: linear-gradient(180deg, #ffffff 39.9%, #f8f8f8 100%);
         padding-bottom: 40px;
+        border-bottom: 1.2px solid #EBEBEB;
     }
 
     .header-top-dsk {
         display: flex;
         flex-direction: row;
-        align-items: center;
+        /*     align-items: center; */
         justify-content: space-between;
+    }
+
+    .logo-desk {
+        position: relative;
+
+    }
+
+    .airbnb-tab-logo {
+        position: absolute;
+        top: 24px;
+    }
+
+    .airbnb-desk-logo {
+        display: none;
     }
 
     .actions {
@@ -783,7 +821,8 @@ a {
     /* nav icons desktop */
     .nav-icons-container-desk {
         position: relative;
-        right: -30px;
+        /* right: -30px; */
+        right: -46px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -807,14 +846,19 @@ a {
         position: relative;
     }
 
+    /* .scale-vid-desk{
+        transform: scale(1.1);
+    } */
+
     .new-tag-desk {
         position: absolute;
         top: -10px;
 
     }
-    .new-txt-desk{
+
+    .new-txt-desk {
         list-style: 11.44px;
-        
+
     }
 
 
@@ -830,6 +874,16 @@ a {
     .nav-title-desk.selected {
         font-weight: 600;
 
+    }
+
+    .home-icon-dsk {
+        margin-left: -5px;
+        /*         padding-left: 5px; */
+    }
+
+    .ser-icon-desk {
+        margin-left: -2px;
+        padding-left: 2px;
     }
 
     .home-dsk {
@@ -856,7 +910,7 @@ a {
         background-color: black;
         min-width: 30px;
         width: calc(179px - 79px);
-        transform: translateX(40px);
+        transform: translateX(48px);
         position: absolute;
         bottom: 0;
         left: 0;
@@ -877,7 +931,7 @@ a {
 
         height: 66px;
         max-width: 850px;
-
+        width: 100%;
 
         /* display: flex; */
         grid-template-columns: minmax(0, 2fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 2fr);
@@ -918,6 +972,7 @@ a {
         overflow: hidden;
         text-wrap: nowrap;
         text-overflow: ellipsis;
+        padding-bottom: 2px;
 
     }
 
@@ -927,7 +982,7 @@ a {
         font-size: 14px;
         font-weight: 400;
         line-height: 18px;
-        color: #6A6A6A; 
+        color: #6A6A6A;
         overflow: hidden;
         text-wrap: nowrap;
         text-overflow: ellipsis;
@@ -962,7 +1017,7 @@ a {
         gap: 8px;
         height: 48px;
         min-width: 48px;
-    } 
+    }
 
     .search-bubble-txt {
         display: none;
@@ -977,6 +1032,120 @@ a {
     /* categroy section */
     .category-scroll {
         grid-auto-columns: calc(25% - 8.25px);
+    }
+
+    .category-title span {
+        font-size: 20px;
+
+    }
+
+    .title-arrows-cnt-tab {
+        display: flex;
+        justify-content: flex-end;
+        gap: 4px;
+    }
+
+    .tact-arrows {
+        border-radius: 50%;
+        height: 24px;
+        aspect-ratio: 1/1;
+        border: none;
+    }
+
+    .tact-arrows img {
+        height: 12px;
+        aspect-ratio: 1/1;
+    }
+
+    /* disabled button style when no more items in left */
+    .tact-disabled {
+        background-color: transparent;
+        border: 1px solid #C1C1C1;
+        opacity: 0.2;
+    }
+
+    /* footer */
+    .footer-top {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        column-gap: 16px;
+        padding-block: 24px 32px;
+    }
+
+    .links-group {
+        grid-column: span 2;
+        padding: 0;
+    }
+
+    /* footer */
+    .footer-container {
+        padding-bottom: 0;
+    }
+
+    /* footer bottom  */
+    .lan-social-cnt {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+
+    .footer-lan-cur {
+        margin-bottom: 0;
+    }
+
+    .footer-social {
+        margin-bottom: 0;
+    }
+
+    .footer-terms {
+        display: flex;
+        align-items: start;
+    }
+
+    .tab-sep {
+        display: inline;
+    }
+
+    .copyright {
+        display: inline;
+
+    }
+
+
+    /* floating footer */
+    .floating-footer {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width:950px) {
+
+    /* header */
+    .header-top-dsk {
+        padding-inline: 32px;
+    }
+
+    .airbnb-tab-logo {
+        display: none;
+
+    }
+
+    .airbnb-desk-logo {
+        display: flex;
+        position: absolute;
+        top: 24px;
+
+    }
+
+    /* grid layout */
+    .category-scroll {
+        grid-auto-columns: calc(20% - 8.8px);
+    }
+
+    .category-scroll {
+        padding: 4px 32px 8px 32px;
     }
 
 }

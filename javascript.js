@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    let debug = false;
+    let debug = true;
     //to set outline if in debug mode
     if (debug) {
         const style = document.createElement("style");
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     // creating containers with different colors to simulate the category cards
 
-    /* const parentContainer = document.querySelector(".category-scroll");
+    const parentContainer = document.querySelector(".category-scroll");
     const n = 8;
     for (let i = 0; i < n; i++) {
         const categoryCard = document.createElement('div');
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardImage.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
         categoryCard.appendChild(cardImage);
         parentContainer.appendChild(categoryCard);
-    } */
+    }
 
 
 
@@ -188,6 +188,20 @@ document.addEventListener("DOMContentLoaded", () => {
         <div  class="ct-right-arrow">
             <img src="assets/svg/mobile/right-arrow-categories.svg" alt="" aria-hidden="true">
         </div>
+            <!-- adding space between items -->
+            <div class="spacer"></div>
+            
+            <!-- right and left arrows for tablet view -->
+            <div class="title-arrows-cnt-tab">
+
+                <button href="#" class="tact-disabled tact-arrows" aria-hidden="true">
+                    <img src="assets/svg/tablet/cat-left-arrow.svg" alt="">
+                </button> 
+                <button href="#" class=" tact-arrows" aria-hidden="true">
+                    <img src="assets/svg/tablet/cat-right-arrow.svg" alt="">
+                </button>
+            </div>
+
     </div>
     <div class="scroll-container">
         <div class="category-scroll">
@@ -406,7 +420,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function underlinePositionScrolling(currentScroll) {
 
         const movingUnderline = document.querySelector(".moving-underline");
-        if (currentScroll === 0 || currentScroll <300) {
+        if (currentScroll === 0 || currentScroll < 300) {
             movingUnderline.classList.remove("scrolled");
         } else if (currentScroll >= 300) {
             movingUnderline.classList.add("scrolled");
