@@ -7,19 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
         style.textContent = `*{outline : 1px solid pink}`;
         document.head.appendChild(style);
     }
-    
-/*     // creating containers with different colors to simulate the category cards
-    const parentContainer = document.querySelector(".category-scroll");
-    const n = 8;
-    for (let i = 0; i < n; i++) {
-        const categoryCard = document.createElement('div');
-        categoryCard.className = "category-card";
-        categoryCard.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
-        const cardImage = document.createElement("img");
-        cardImage.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
-        categoryCard.appendChild(cardImage);
-        parentContainer.appendChild(categoryCard);
-    } */
+
+    /*     // creating containers with different colors to simulate the category cards
+        const parentContainer = document.querySelector(".category-scroll");
+        const n = 8;
+        for (let i = 0; i < n; i++) {
+            const categoryCard = document.createElement('div');
+            categoryCard.className = "category-card";
+            categoryCard.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
+            const cardImage = document.createElement("img");
+            cardImage.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
+            categoryCard.appendChild(cardImage);
+            parentContainer.appendChild(categoryCard);
+        } */
 
 
 
@@ -171,14 +171,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     ];
 
+    const mediaQuerry = window.matchMedia('(min-width:744px)');
+    /* querry selectors */
+    const searchBar = document.querySelector(".searchbar-desk");
+    const searchBubble = document.querySelector(".search-bubble");
+    const firstChildren = document.querySelectorAll(".searchbar-desk .first-child");
+    const secondChildren = document.querySelectorAll(".searchbar-desk .second-child");
+    const navIconsContainerDesk = document.querySelector(".nav-icons-container-desk");
 
+
+
+    // scrollListener to activate various functions
+    window.addEventListener("scroll", function () {
+        let currentScroll = window.scrollY;
+        debug && console.log("current scroll : " + currentScroll);
+        /* underline position in mobile view */
+        underlinePositionScrolling(currentScroll);
+        /* shrink video in mobile view */
+        shrinkVideoScroll(currentScroll);
+        toggleFloatingFooter(currentScroll);
+        if (mediaQuerry.matches) {
+            shrinkSearchBarScroll(currentScroll);
+        }
+    });
 
 
 
     // function to create cards
     function createEachCategoryRow(CatListItem) {
-
-
         // const catSection = document.querySelector(".category-section");
         const catSection = document.createElement("section");
         catSection.className = "category-section";
@@ -250,9 +270,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return catSection;
     };
 
-
-
-
     //appending it to the categories
     const catSection = document.getElementById("categories");
     categoriesList.forEach(categoryListItem => {
@@ -275,34 +292,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // to show and hide floating navigation bar
     const floatingFooter = document.querySelector(".floating-footer");
-    let lastScroll = 0;
 
 
-    window.addEventListener("scroll", function () {
-        let currentScroll = window.scrollY;
-        if (false) {
 
-            debug && console.log("current scroll : " + currentScroll);
-        }
-        underlinePositionScrolling(currentScroll);
-        shrinkVideoScroll(currentScroll);
+
+
+    let lastScrolledPosition = 0;
+    //function to handle floating bottom nav or floating footer
+    function toggleFloatingFooter(currentScroll) {
         const scrollHeight = document.documentElement.scrollHeight;
         const windowInnerHeight = window.innerHeight;
-        // const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        /* const maxScroll = document.documentElement.scrollHeight - window.innerHeight; */
         const maxScroll = scrollHeight - windowInnerHeight;
         debug && console.log(`maxScroll: ${maxScroll}, scrollHeight: ${scrollHeight} , windowHeight: ${windowInnerHeight} `)
 
         if (currentScroll === 0 || currentScroll >= maxScroll - 15) {
             floatingFooter.classList.remove("invisible");
-        } else if (currentScroll > lastScroll) {
+        } else if (currentScroll > lastScrolledPosition) {
             floatingFooter.classList.add("invisible");
-        }
-
-        else {
+        } else {
             floatingFooter.classList.remove("invisible");
         }
-        lastScroll = currentScroll;
-    });
+        lastScrolledPosition = currentScroll;
+    }
 
     // function to reduce the size of the video to 0 when scrolling
     function shrinkVideoScroll(currentScroll) {
@@ -481,8 +493,28 @@ document.addEventListener("DOMContentLoaded", () => {
         navVideo.play();
     }
     /* Functinos that happen from media querry 744px */
-    const mediaQuerry = window.matchMedia('(min-width:744px)');
-    
+
+    //function to shrink the size of the searchbar when scrolling
+    function shrinkSearchBarScroll(currentScroll) {
+
+
+
+
+        if (currentScroll > 200) {
+            searchBar.classList.add("second-child");
+            searchBubble.classList.add("sb-second-child");
+            navIconsContainerDesk.classList.add("scrolled");
+            firstChildren.forEach(fchild => fchild.classList.add("scrolled"));
+            secondChildren.forEach(schild => schild.classList.add("scrolled"));
+        } else {
+            searchBar.classList.remove("second-child");
+            navIconsContainerDesk.classList.remove("scrolled");
+            searchBubble.classList.remove("sb-second-child");
+            firstChildren.forEach(fchild => fchild.classList.remove("scrolled"));
+            secondChildren.forEach(schild => schild.classList.remove("scrolled"));
+        }
+
+    }
 
 
 
