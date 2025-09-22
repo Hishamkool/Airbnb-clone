@@ -1,14 +1,14 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-    let debug = true;
+    let debug = false;
     //to set outline if in debug mode
     if (debug) {
         const style = document.createElement("style");
         style.textContent = `*{outline : 1px solid pink}`;
         document.head.appendChild(style);
     }
-    // creating containers with different colors to simulate the category cards
-
+    
+/*     // creating containers with different colors to simulate the category cards
     const parentContainer = document.querySelector(".category-scroll");
     const n = 8;
     for (let i = 0; i < n; i++) {
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardImage.style.backgroundColor = `#${Math.random().toString(16).slice(2, 8)}`;
         categoryCard.appendChild(cardImage);
         parentContainer.appendChild(categoryCard);
-    }
+    } */
 
 
 
@@ -480,8 +480,9 @@ document.addEventListener("DOMContentLoaded", () => {
         navVideo.load();
         navVideo.play();
     }
-
-
+    /* Functinos that happen from media querry 744px */
+    const mediaQuerry = window.matchMedia('(min-width:744px)');
+    
 
 
 

@@ -129,7 +129,7 @@
                         </div>
                         <!-- experiences button -->
                         <div class="nav-icon-desk selected">
-                            <a href="#" class="nav-content-desk"> 
+                            <a href="#" class="nav-content-desk">
 
                                 <span class="nav-video-desk scale-vid-desk"><!-- scale for experience and bell only -->
                                     <video autoplay muted playsinline="" preload="auto"
@@ -191,39 +191,75 @@
 
                 </div>
                 <div class="header-bottom-dsk">
-                    <div class="searchbar-desk">
-                        <div class="bubble where-bubble">
-                            <div class="title-sub-bubble">
-                                <div class="tsb-head">Where</div>
-                                <span class="tsb-span">Search destinations</span>
+                    <!-- add class "second-child" while scrolling to increase the height of the seach container -->
+                    <div class="searchbar-desk ">
+                        <!-- where bubble -->
+                        <div class="bubble where-bubble first-child">
+                            <label for="search-where">
+                                <div class="title-sub-bubble">
+                                    <div class="tsb-head">Where</div>
+                                    <input type="text" class="tsb-span tsb-input" id="search-where"
+                                        placeholder="Search destinations"></input>
+                                </div>
+                            </label>
+
+                        </div>
+                        <div class="second-child">
+                            <div class="sc-homeImg-cnt">
+                                <img class="sc-homeImg"
+                                    src="https://a0.muscache.com/im/pictures/airbnb-platform-assets/AirbnbPlatformAssets-search-bar-icons/original/4aae4ed7-5939-4e76-b100-e69440ebeae4.png?im_w=240"
+                                    alt="">
+                            </div>
+                            <div class="sc-span-cnt first-sc-span">
+                                <span>Anywhere</span>
                             </div>
                         </div>
+
                         <div class="divider-bubble"></div>
-                        <div class="bubble checkin-bubble">
+                        <!-- checkin bubble -->
+                        <div class="bubble checkin-bubble first-child">
                             <div class="title-sub-bubble">
                                 <div class="tsb-head">Check in</div>
                                 <span class="tsb-span">Add dates</span>
                             </div>
                         </div>
+                        <div class="second-child">
+                            <div class="sc-span-cnt">
+                                <span>Anytime</span>
+                            </div>
+                        </div>
+
                         <div class="divider-bubble"></div>
-                        <div class="bubble checkout-bubble">
+                        <!-- checkout bubble -->
+                        <div class="bubble checkout-bubble first-child">
                             <div class="title-sub-bubble">
                                 <div class="tsb-head">Check out</div>
                                 <span class="tsb-span">Add dates</span>
                             </div>
+
                         </div>
-                        <div class="divider-bubble"></div>
-                        <div class="bubble who-bubble">
+                        <!-- if second child disable this divider using first-child class -->
+                        <div class="divider-bubble first-child"></div>
+                        <!-- who bubble -->
+                        <div class="bubble who-bubble first-child">
                             <div class="title-sub-bubble">
                                 <div class="tsb-head">Who</div>
                                 <span class="tsb-span">Add guests</span>
                             </div>
                         </div>
-                        <div class="search-bubble">
+                        <div class="second-child">
+                            <div class="sc-span-cnt last-sc-span">
+                                <span>Add guests</span>
+                            </div>
+                        </div>
+                        <!-- positioned search icon -->
+                        <!-- add class "sb-second-child" to reduce the size of the icon when scrolled -->
+                        <div class="search-bubble ">
+
                             <div class="searchImg-cnt">
                                 <img src="assets/svg/tablet/search-bubble.svg" alt="search-icon">
                             </div>
-                            <span class="search-bubble-txt">Search</span>
+                            <span class="search-bubble-txt ">Search</span>
                         </div>
                     </div>
                 </div>
@@ -237,7 +273,7 @@
     <!-- main content of the page containing the scrollable cards -->
     <main id="categories">
 
-        <section class="category-section">
+        <!-- <section class="category-section">
             <div class="category-title">
                 <span>Popular homes in Bengaluru</span>
                 <div class="ct-right-arrow">
@@ -291,7 +327,7 @@
                 </div>
             </div>
 
-        </section>
+        </section> -->
 
     </main>
     <section class="Inspiration-section">
@@ -396,9 +432,9 @@
                         <span>© 2025 Airbnb, Inc.</span>
                     </div>
                     <div class="seperator tab-sep">
-                            <!-- <div class="sep"></div> -->
-                            &middot;
-                        </div>
+                        <!-- <div class="sep"></div> -->
+                        &middot;
+                    </div>
                     <div class="terms">
                         <span>Privacy</span>
                         <div class="seperator">

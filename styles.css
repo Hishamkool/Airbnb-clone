@@ -29,11 +29,11 @@ a {
 .header {
 
     /* indebug */
-    /*  position: sticky;
+    position: sticky;
     z-index: 10;
     top: 0;
     left: 0;
-    background-color: #FFFFFF; */
+    background-color: #FFFFFF;
 
 }
 
@@ -263,6 +263,8 @@ a {
     overflow-x: auto;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
     column-gap: 11px;
     justify-content: flex-start;
 }
@@ -276,6 +278,8 @@ a {
     width: 159px; */
     row-gap: 8px;
     column-gap: 8px;
+    scroll-snap-align: start;
+
 }
 
 .card-img-div {
@@ -944,6 +948,11 @@ a {
         position: relative;
         /* for search bubble */
     }
+    .searchbar-desk.second-child{
+        display: inline-flex;
+        width: fit-content;
+        height: 48px;
+    }
 
     .searchbar-desk::selection {
         background-color: #EBEBEB;
@@ -988,12 +997,39 @@ a {
         text-overflow: ellipsis;
     }
 
+    .tsb-input {
+        border: none;
+    }
+
+    .tsb-input:focus {
+        border: none;
+        outline: none;
+        color: #222222;
+        font-weight: 500;
+        line-height: 18px;
+    }
+
     .bubble {
         padding: 15px 24px;
         border-radius: 32px;
         width: 100%;
 
     }
+
+    .first-child {
+        display: none;
+        display: flex;
+    }
+    
+    .second-child {
+        align-items: center;
+      
+        display: flex;
+        display: none;
+        width: fit-content;
+      
+    }
+    
 
     .where-bubble {
         padding: 15px 32px;
@@ -1002,6 +1038,31 @@ a {
     .who-bubble {
 
         padding-right: 130px;
+    }
+
+    /* second child */
+    .sc-homeImg-cnt {
+        height: 48px;
+    }
+
+    .sc-homeImg {
+        height: 48px;
+        width: 48px;
+        margin-left: 8px;
+    }
+
+    .sc-span-cnt {
+        padding-inline: 16px;
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 500;
+    }
+
+    .first-sc-span {
+        padding-left: 0;
+    }
+    .last-sc-span{
+        padding-right: 50px;
     }
 
     .search-bubble {
@@ -1018,6 +1079,20 @@ a {
         height: 48px;
         min-width: 48px;
     }
+   .sb-second-child{
+        
+        height: 32px;
+        width: 32px;
+        min-width: 0;
+        min-height: 0;
+        /* margin: 0; */
+     
+       
+    }
+    .sb-second-child img{
+        height: 12px;
+        width: 12px;
+    }
 
     .search-bubble-txt {
         display: none;
@@ -1031,6 +1106,9 @@ a {
 
     /* categroy section */
     .category-scroll {
+        padding: 0;
+        /* remove padding and set margin */
+        margin: 0 24px;
         grid-auto-columns: calc(25% - 8.25px);
     }
 
