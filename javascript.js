@@ -1,5 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
+    let enableLog = false;
+    
     let debug = false;
     //to set outline if in debug mode
     if (debug) {
@@ -178,20 +180,24 @@ document.addEventListener("DOMContentLoaded", () => {
     const firstChildren = document.querySelectorAll(".searchbar-desk .first-child");
     const secondChildren = document.querySelectorAll(".searchbar-desk .second-child");
     const navIconsContainerDesk = document.querySelector(".nav-icons-container-desk");
+    const headerDesktop = document.querySelector(".header-desktop");
 
 
 
     // scrollListener to activate various functions
     window.addEventListener("scroll", function () {
         let currentScroll = window.scrollY;
-        debug && console.log("current scroll : " + currentScroll);
+        false && console.log("current scroll : " + currentScroll);
         /* underline position in mobile view */
-        underlinePositionScrolling(currentScroll);
-        /* shrink video in mobile view */
-        shrinkVideoScroll(currentScroll);
-        toggleFloatingFooter(currentScroll);
+
+
         if (mediaQuerry.matches) {
             shrinkSearchBarScroll(currentScroll);
+        } else {
+            /* shrink video in mobile view */
+            underlinePositionScrolling(currentScroll);
+            shrinkVideoScroll(currentScroll);
+            toggleFloatingFooter(currentScroll);
         }
     });
 
@@ -381,7 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const underLine = document.querySelector(".moving-underline");
     const navIcons = document.querySelectorAll(".nav-icon");
 
-    //initial section of the nav icon - because width is not set , depends upon the first nav title width
+    //initial section of the nav icon or underline for the first item
     if (navIcons.length > 0) {
         initialNavIconSelection();
     }
@@ -395,7 +401,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
-    //to move the underline below nav icons during selection
+    //to move the underline below nav icons during selection and change video
 
     navIcons.forEach((navIcon, index) => {
         navIcon.addEventListener("click", function () {
@@ -492,28 +498,118 @@ document.addEventListener("DOMContentLoaded", () => {
         navVideo.load();
         navVideo.play();
     }
+
+
+
     /* Functinos that happen from media querry 744px */
 
     //function to shrink the size of the searchbar when scrolling
+    let isShrunk = false;
     function shrinkSearchBarScroll(currentScroll) {
 
+        let maxScroll = 300;
 
 
+        if (currentScroll >= maxScroll) {
 
-        if (currentScroll > 200) {
+            /* changing the height is causing a bouncing effect */
+            // headerDesktop.classList.add("scrolled");
+            /*  setTimeout(() => {
+                 headerDesktop.classList.add("scrolled");
+             }, 200); */
+            headerDesktop.classList.remove("expand"); // reset opposite state
+            headerDesktop.classList.add("shrink");
+            isShrunk = true;
             searchBar.classList.add("second-child");
             searchBubble.classList.add("sb-second-child");
             navIconsContainerDesk.classList.add("scrolled");
             firstChildren.forEach(fchild => fchild.classList.add("scrolled"));
             secondChildren.forEach(schild => schild.classList.add("scrolled"));
-        } else {
+        } else if (currentScroll < maxScroll) {
+
+            // headerDesktop.classList.remove("scrolled");
+            /*   setTimeout(() => {
+                  headerDesktop.classList.remove("scrolled");
+              }, 200); */
+            headerDesktop.classList.remove("shrink"); // reset opposite state
+            headerDesktop.classList.add("expand");
+            isShrunk = false;
             searchBar.classList.remove("second-child");
-            navIconsContainerDesk.classList.remove("scrolled");
             searchBubble.classList.remove("sb-second-child");
+            navIconsContainerDesk.classList.remove("scrolled");
             firstChildren.forEach(fchild => fchild.classList.remove("scrolled"));
             secondChildren.forEach(schild => schild.classList.remove("scrolled"));
         }
 
+    }
+
+    const navContentDeskAll = document.querySelectorAll(".nav-content-desk");
+
+    navContentDeskAll.forEach((navContentDesk, index) => {
+        navContentDesk.addEventListener("click", () => {
+            enableLog && console.log("nav content desktop clicked");
+
+            const navVideoDesk_Video = navContentDesk.querySelector(".nav-video-desk video");
+            changeNavVideoDesk(navVideoDesk_Video, index);
+
+
+            moveUnderlineDesk(navContentDesk);
+
+
+        });
+
+    });
+
+    //funnction to change the video on click of the navcontent
+    function changeNavVideoDesk(navVideoDesk_Video, index) {
+        const videoWebm = navVideoDesk_Video.querySelector("source[type='video/webm']");
+        const videoMp4 = navVideoDesk_Video.querySelector("source[type='video/mp4']");
+        const canPlayMp4 = navVideoDesk_Video.canPlayType('video/mp4; codecs="hvc1"');
+        disableLog && console.log("can it play mp4 : ", canPlayMp4 || "no it cant");
+        if (index === 0) {
+            if (canPlayMp4) {
+                videoMp4.src = "assets/media/mov/house-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/house-selected.webm";
+            }
+        } else if (index === 1) {
+            if (canPlayMp4) {
+                videoMp4.src = "assets/media/mov/balloon-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/balloon-selected.webm";
+            }
+        } else if (index === 2) {
+            if (canPlayMp4) {
+                videoMp4.src = "assets/media/mov/bell-twirl-selected.mov";
+            } else {
+                videoWebm.src = "assets/media/bell-selected.webm";
+            }
+        }
+        navVideoDesk_Video.load();
+        navVideoDesk_Video.play();
+    }
+    // function to translate the underline to the desired position
+    function moveUnderlineDesk(navContentDesk) {
+
+        const underlineDesk = document.querySelector(".moving-underline-desk");
+
+        const itemBounding = navContentDesk.getBoundingClientRect();
+        const itemWidth = itemBounding.width;
+        const offsetLeftItem = navContentDesk.offsetLeft;
+        const offsetWidthItem = navContentDesk.offsetWidth;
+        const itemsPositionLeft = itemBounding.left;
+
+        enableLog && console.log(
+            "item width: ", itemWidth, '\n',
+            "offsetWidth: ", offsetWidthItem, '\n',
+            "offsetLeft: ", offsetLeftItem, '\n',
+            "bounding left: ", itemsPositionLeft, '\n',
+
+        );
+
+        underlineDesk.style.width = `${offsetWidthItem}px`;
+        underlineDesk.style.transform = `translateX(${offsetLeftItem}px)`;
+        disableLog && console.log("paddingleft :", paddingLeftItem, "left offset: ", leftItem, "difference:", leftItem - paddingLeftItem);
     }
 
 

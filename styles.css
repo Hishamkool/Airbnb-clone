@@ -11,6 +11,7 @@ a {
 }
 
 
+
 @font-face {
     font-family: "Cereal";
     src: url("assets/fonts/AirbnbCerealVF_W_Wght.2d9d32865ef1262644c455b3ead871e9.woff2");
@@ -768,13 +769,52 @@ a {
         background: linear-gradient(180deg, #ffffff 39.9%, #f8f8f8 100%);
         padding-bottom: 40px;
         border-bottom: 1.2px solid #EBEBEB;
+        height: 200px;
+        transition: height 0.3s ease;
     }
+
+    /*    .header-desktop.scrolled { 
+        height: 80px; 
+    } */
+    /* Shrink animation (200px → 80px) */
+    .header-desktop.shrink {
+        animation: shrinkHeader 0.4s ease forwards;
+    }
+
+    /* Expand animation (80px → 200px) */
+    .header-desktop.expand {
+        animation: expandHeader 0.4s ease forwards;
+    }
+
+    @keyframes shrinkHeader {
+        from {
+            height: 200px;
+        }
+
+        to {
+            height: 80px;
+        }
+    }
+
+    @keyframes expandHeader {
+        from {
+            height: 80px;
+        }
+
+        to {
+            height: 200px;
+        }
+    }
+
+
+
 
     .header-top-dsk {
         display: flex;
         flex-direction: row;
         /*     align-items: center; */
         justify-content: space-between;
+        position: relative;
     }
 
     .logo-desk {
@@ -835,11 +875,12 @@ a {
         width: 500px;
         position: relative;
         column-gap: 35px;
-        transform: 05s ease;
-        
+        transition: 0.5s ease;
+
     }
-    .nav-icons-container-desk.scrolled{
-        transform: translateX(-100%);
+
+    .nav-icons-container-desk.scrolled {
+        transform: translateY(-200%);
     }
 
     /* video & titile */
@@ -917,11 +958,12 @@ a {
         height: 3px;
         background-color: black;
         min-width: 30px;
-        width: calc(179px - 79px);
+       
         transform: translateX(48px);
         position: absolute;
         bottom: 0;
         left: 0;
+        transition: 0.5s ease;
     }
 
     .header-bottom-dsk {
@@ -930,17 +972,15 @@ a {
         justify-content: center;
         align-items: center;
         width: 100%;
-
-
     }
 
-    .searchbar-desk {
-        border-radius: 32px;
 
+    .searchbar-desk {
+
+        border-radius: 32px;
         height: 66px;
         max-width: 850px;
         width: 100%;
-
         /* display: flex; */
         grid-template-columns: minmax(0, 2fr) 1px minmax(0, 1fr) 1px minmax(0, 1fr) 1px minmax(0, 2fr);
         display: grid;
@@ -950,14 +990,21 @@ a {
         border: 1px solid #DDDDDD;
         box-shadow: rgba(0, 0, 0, 0.1) 0 8px 24px 0;
         position: relative;
+        transition: 0.5s ease;
         /* for search bubble */
     }
 
+
     .searchbar-desk.second-child {
+        display: grid;
+        /* grid-template-columns: minmax(0, min-content) min-content minmax(0, min-content) min-content minmax(0, min-content); */
         display: inline-flex;
         width: fit-content;
-        height: 48px;
+        height: 48px;  
+        transform: translateY(-170%) scaleX(0.917 ); 
     }
+
+
 
     .searchbar-desk::selection {
         background-color: #EBEBEB;
@@ -1065,6 +1112,8 @@ a {
         font-size: 14px;
         line-height: 22px;
         font-weight: 500;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
 
     .first-sc-span {
@@ -1166,7 +1215,10 @@ a {
         grid-column: span 2;
         padding: 0;
     }
-
+    /* inspiration section  */
+    .inspiration-arrows {
+        display: none;
+    }
     /* footer */
     .footer-container {
         padding-bottom: 0;
