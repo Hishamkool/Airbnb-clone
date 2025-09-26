@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     let enableLog = false;
-    
+
     let debug = false;
     //to set outline if in debug mode
     if (debug) {
@@ -565,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const videoWebm = navVideoDesk_Video.querySelector("source[type='video/webm']");
         const videoMp4 = navVideoDesk_Video.querySelector("source[type='video/mp4']");
         const canPlayMp4 = navVideoDesk_Video.canPlayType('video/mp4; codecs="hvc1"');
-        disableLog && console.log("can it play mp4 : ", canPlayMp4 || "no it cant");
+        console.log("can it play mp4 : ", canPlayMp4 || "no it cant");
         if (index === 0) {
             if (canPlayMp4) {
                 videoMp4.src = "assets/media/mov/house-selected.mov";
@@ -609,7 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         underlineDesk.style.width = `${offsetWidthItem}px`;
         underlineDesk.style.transform = `translateX(${offsetLeftItem}px)`;
-        disableLog && console.log("paddingleft :", paddingLeftItem, "left offset: ", leftItem, "difference:", leftItem - paddingLeftItem);
+ss
     }
 
 
