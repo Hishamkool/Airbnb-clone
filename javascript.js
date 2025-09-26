@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 { img: "assets/avif/001.avif", name: "Apartment in Bangalore Urban", price: "₹5,000 for 2 nights", rating: "4.72", isGuestFav: true },
                 { img: "assets/avif/002.avif", name: "Flat in Bangalore Urban", price: "₹7,500 for 2 nights", rating: "4.75", isGuestFav: true },
                 { img: "assets/avif/003.avif", name: "Place to stay in Bangalore Urban", price: "₹6,800 for 2 nights", rating: "4.78", isGuestFav: true },
-                { img: "assets/avif/004.avif", name: "Flat in Bangalore Urban", price: "₹12,000 for 2 nights", rating: "4.85", isGuestFav: true },
+                { img: "assets/avif/072.avif", name: "Flat in Bangalore Urban", price: "₹12,000 for 2 nights", rating: "4.85", isGuestFav: true },
                 { img: "assets/avif/005.avif", name: "Room in Bangalore Urban", price: "₹10,000 for 2 nights", rating: "4.90", isGuestFav: true },
                 { img: "assets/avif/006.avif", name: "Flat in Koramangala", price: "₹5,000 for 2 nights", rating: "4.80", isGuestFav: true },
                 { img: "assets/avif/007.avif", name: "Flat in Bangalore Urban", price: "₹8,000 for 2 nights", rating: "4.85", isGuestFav: true }
@@ -159,16 +159,16 @@ document.addEventListener("DOMContentLoaded", () => {
             ]
         },
         {
-            title: "Stay in Delhi",
+            title: "Stay in Dehradun",
             listings: [
-                { img: "assets/avif/064.avif", name: "Luxury Apartment, Connaught Place", price: "₹14,000 for 2 nights", rating: "4.89", isGuestFav: true },
-                { img: "assets/avif/065.avif", name: "Cozy 1BHK Near Hauz Khas", price: "₹6,000 for 2 nights", rating: "4.73", isGuestFav: true },
-                { img: "assets/avif/066.avif", name: "Modern Studio, South Delhi", price: "₹5,500 for 2 nights", rating: "4.70", isGuestFav: true },
-                { img: "assets/avif/067.avif", name: "Elegant 2BHK in Greater Kailash", price: "₹9,800 for 2 nights", rating: "4.85", isGuestFav: true },
-                { img: "assets/avif/068.avif", name: "Comfortable Stay, Karol Bagh", price: "₹4,900 for 2 nights", rating: "4.67", isGuestFav: true },
-                { img: "assets/avif/069.avif", name: "Heritage Haveli, Old Delhi", price: "₹11,500 for 2 nights", rating: "4.86", isGuestFav: true },
-                { img: "assets/avif/070.avif", name: "Minimalist Flat, Dwarka", price: "₹5,200 for 2 nights", rating: "4.65", isGuestFav: true },
-                { img: "assets/avif/071.avif", name: "Penthouse with Terrace, Saket", price: "₹13,200 for 2 nights", rating: "4.87", isGuestFav: true }
+                { img: "assets/avif/064.avif", name: "Guest house in Mussoorie", price: "₹14,000 for 2 nights", rating: "4.89", isGuestFav: true },
+                { img: "assets/avif/065.avif", name: "Flat in Dehradun", price: "₹6,000 for 2 nights", rating: "4.73", isGuestFav: true },
+                { img: "assets/avif/066.avif", name: "Flat in Dehradun", price: "₹5,500 for 2 nights", rating: "4.70", isGuestFav: true },
+                { img: "assets/avif/067.avif", name: "Villa in Dehradun", price: "₹9,800 for 2 nights", rating: "4.85", isGuestFav: true },
+                { img: "assets/avif/068.avif", name: "Home in Dehradun", price: "₹4,900 for 2 nights", rating: "4.67", isGuestFav: true },
+                { img: "assets/avif/069.avif", name: "Apartment in Dehradun", price: "₹11,500 for 2 nights", rating: "4.86", isGuestFav: true },
+                { img: "assets/avif/070.avif", name: "Apartment in Dehradun", price: "₹5,200 for 2 nights", rating: "4.65", isGuestFav: true },
+                { img: "assets/avif/071.avif", name: "Apartment in Dehradun", price: "₹13,200 for 2 nights", rating: "4.87", isGuestFav: true }
             ]
         }
     ];
